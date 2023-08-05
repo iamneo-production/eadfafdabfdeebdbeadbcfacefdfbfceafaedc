@@ -24,6 +24,9 @@ public class Task {
   @Column(name = "taskStatus")
   private String taskStatus;
 
+  @Column(name = "houseNo")
+  private Integer houseNo;
+
 
   public Task(){
 
@@ -36,6 +39,7 @@ public class Task {
     this.taskDate = taskDate;
     this.taskName = taskName;
     this.taskStatus = taskStatus;
+    this.houseNo = 212;
   }
 
 
@@ -78,4 +82,16 @@ public class Task {
   public void setTaskStatus(String taskStatus) {
     this.taskStatus = taskStatus;
   }
+
+
+  public Integer getHouseNo() {
+    return houseNo;
+  }
+
+
+  public void setHouseNo(Integer houseNo) {
+    this.houseNo = houseNo;
+  }
+
+  
 }
