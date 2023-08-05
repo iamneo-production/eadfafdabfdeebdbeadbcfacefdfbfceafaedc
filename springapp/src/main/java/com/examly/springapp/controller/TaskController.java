@@ -38,17 +38,17 @@ public class TaskController {
   }
 
   @GetMapping("/getTask")
-  public ResponseEntity<Task> getTaskById(@RequestParam Long id)
+  public ResponseEntity<Task> getTaskById(@RequestParam("taskId") Long id)
   {
     Task task = taskRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Task not found :"+id));
     return ResponseEntity.ok(task);
   }
 
   @GetMapping("/changeStatus")
-  public ResponseEntity<Task> updateTask(@RequestParam Long id, @RequestBody Task Taskdetails)
+  public ResponseEntity<Task> updateTask(@RequestParam("taskId") Long id, @RequestBody Task taskDetails)
   {
     Task task = taskRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Task not found :"+id));
-    task.setTaskStatus(Taskdetails.getTaskStatus());
+    task.setTaskStatus(taskDetails.getTaskStatus());
 
     Task updatedtask = taskRepository.save(task);
     return ResponseEntity.ok(updatedtask);
