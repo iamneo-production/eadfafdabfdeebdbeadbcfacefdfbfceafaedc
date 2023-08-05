@@ -62,6 +62,4 @@ public class TaskController {
     taskRepository.delete(task);
     return "deleted sucessfully";
   }
-
-
 }
